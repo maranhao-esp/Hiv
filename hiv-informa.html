@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HIV sem mistério</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4fb;--ink:#1a1633;--mut:#5b5776;--card:#fff;--line:#e2def0;--red:#e11d48;--teal:#0f9f8f;--sun:#ffc857;--hero:#1a1633;--hero-ink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#110f22;--ink:#f1eefc;--mut:#a8a3c4;--card:#1b1833;--line:#2c2850;--hero:#0a0918}}
+:root[data-theme="dark"]{--bg:#110f22;--ink:#f1eefc;--mut:#a8a3c4;--card:#1b1833;--line:#2c2850;--hero:#0a0918}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 "Public Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,5vw,2.8rem)}h3{font-size:1.25rem}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:.2rem;align-items:center;padding:.6rem 1rem;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto}
+nav b{font-family:"Bricolage Grotesque";margin-right:auto;white-space:nowrap;display:flex;gap:.4rem;align-items:center}
+nav a{text-decoration:none;padding:.3rem .7rem;border-radius:99px;font-size:.9rem;white-space:nowrap;color:var(--mut)}
+nav a:hover{background:var(--line);color:var(--ink)}
+button{font:inherit;cursor:pointer}
+.tg{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:.3rem .7rem}
+.hero{position:relative;background:var(--hero);color:var(--hero-ink);overflow:hidden;padding:4rem 1.2rem 3rem}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .in{position:relative;max-width:1000px;margin:auto;pointer-events:none}
+.hero .in *{pointer-events:auto}
+.hero h1{font-size:clamp(2.6rem,9vw,5.6rem);font-weight:800;max-width:12ch}
+.hero p{color:#d6d1f0;font-size:1.15rem}
+.panel{display:inline-flex;flex-wrap:wrap;gap:1rem;align-items:center;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:.9rem 1.1rem}
+.sw{position:relative;width:58px;height:32px;border-radius:99px;background:#6b6790;border:0;transition:.3s}
+.sw::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.3s}
+.sw[aria-checked=true]{background:var(--teal)}.sw[aria-checked=true]::after{transform:translateX(26px)}
+.vl{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.5rem}
+.vl small{display:block;font:400 .8rem "Public Sans";color:#d6d1f0}
+section{padding:4rem 1.2rem}
+.w{max-width:1000px;margin:auto}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.3rem}
+.card svg{width:64px;height:64px;margin-bottom:.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.4rem}
+.chip{padding:.35rem .8rem;border-radius:99px;font-size:.95rem;border:1px solid}
+.yes{border-color:var(--red);color:var(--red)}.no{border-color:var(--teal);color:var(--teal)}
+.band{background:var(--card);border-block:1px solid var(--line)}
+.flip{perspective:900px;height:190px;border:0;background:none;padding:0;text-align:left;color:inherit}
+.flip>div{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.on>div{transform:rotateY(180deg)}
+.flip span{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;gap:.4rem}
+.flip .f{background:var(--card);border:1px solid var(--line);font-weight:600}
+.flip .b{background:var(--teal);color:#fff;transform:rotateY(180deg);font-size:.97rem}
+.flip i{font:normal 700 .85rem "Public Sans";color:var(--red)}
+input[type=range]{width:100%;accent-color:var(--red);height:2rem}
+.bar{height:14px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar div{height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--teal));transition:width .4s}
+.out{min-height:5.5em;margin-top:1rem}
+.q button.o{display:block;width:100%;text-align:left;margin:.4rem 0;padding:.8rem 1rem;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.q button.o:hover{border-color:var(--ink)}
+.q .ok{background:var(--teal);color:#fff;border-color:var(--teal)}.q .ko{background:var(--red);color:#fff;border-color:var(--red)}
+.btn{display:inline-block;background:var(--red);color:#fff;border:0;border-radius:99px;padding:.7rem 1.3rem;font-weight:600;text-decoration:none}
+details{border-bottom:1px solid var(--line);padding:.9rem 0}
+summary{cursor:pointer;font-weight:600;font-size:1.08rem}
+details p{margin:.6rem 0 0;color:var(--mut)}
+footer{padding:2.5rem 1.2rem;border-top:1px solid var(--line);color:var(--mut);font-size:.9rem}
+.big{font:800 clamp(2.4rem,8vw,4rem)/1 "Bricolage Grotesque";color:var(--red)}
+#pg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--red),var(--sun));z-index:30}
+.ctas{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 1.4rem}
+.btn.ghost{background:transparent;border:1.5px solid currentColor}
+.tl{list-style:none;margin:2rem 0 0;padding:0 0 0 1.6rem;border-left:3px solid var(--line)}
+.tl li{position:relative;margin-bottom:1.6rem;opacity:.25;transform:translateX(-8px);transition:.5s}
+.tl li.in{opacity:1;transform:none}
+.tl li::before{content:"";position:absolute;left:calc(-1.6rem - 9px);top:.45rem;width:15px;height:15px;border-radius:50%;background:var(--red);border:3px solid var(--bg)}
+.tl b{font:800 1.5rem "Bricolage Grotesque";color:var(--red);display:block}
+.tl span{color:var(--mut)}
+.card.s{border-left:6px solid var(--teal)}
+.two{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:1.5rem}
+.fig svg{width:100%;max-height:340px;display:block}
+.hp{opacity:.4;cursor:pointer;transition:.3s}.hp.on{opacity:1;filter:drop-shadow(0 0 6px var(--sun))}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.8rem 0}
+.tabs button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:.35rem .8rem;font-size:.92rem}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.exp{min-height:6em;color:var(--mut);margin:0}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="pg"></div>
+<nav>
+<b><svg width="20" height="24" viewBox="0 0 20 24" aria-hidden="true"><path d="M10 1c4 0 6 3 4.600 6.500L12.500 12l3 8.500-2.500-1L10 14l-3 5.500-2.500 1 3-8.500-2.100-4.500C4 4 6 1 10 1z" fill="#e11d48"/></svg>HIV sem mistério</b>
+<a href="#basico">O básico</a><a href="#virus">Vírus</a><a href="#prevencao">Prevenção</a><a href="#teste">Teste</a><a href="#tratamento">Tratamento</a><a href="#historia">História</a><a href="#mitos">Mitos</a><a href="#quiz">Quiz</a><a href="#ajuda">Ajuda</a>
+<button class="tg" id="theme" aria-label="Alternar tema claro e escuro">🌓</button>
+</nav>
+
+<header class="hero">
+<canvas id="cv" aria-hidden="true"></canvas>
+<div class="in">
+<h1>HIV tem tratamento. Informação também.</h1>
+<p>Hoje, uma pessoa com HIV em tratamento vive bem, por muitos anos, e não transmite o vírus pelo sexo. Mexa na simulação abaixo e veja por quê.</p>
+<div class="panel">
+<button class="sw" id="sw" role="switch" aria-checked="false" aria-label="Ativar tratamento antirretroviral"></button>
+<div><b id="swl">Sem tratamento</b><div class="vl"><span id="cnt">0</span> <small id="vls">partículas do vírus no sangue (simulação)</small></div></div>
+</div>
+</div>
+</header>
+
+<section id="basico"><div class="w">
+<h2>O básico, sem complicação</h2>
+<div class="grid">
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="14" fill="#e11d48"/><g stroke="#e11d48" stroke-width="4" stroke-linecap="round"><path d="M32 6v10M32 48v10M6 32h10M48 32h10M14 14l7 7M43 43l7 7M50 14l-7 7M21 43l-7 7"/></g></svg><h3>O que é HIV</h3><p>É o vírus da imunodeficiência humana. Ele ataca as células de defesa do corpo (os linfócitos CD4).</p></div>
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 54 14v18c0 14-10 22-22 26C20 54 10 46 10 32V14z" fill="#0f9f8f"/><path d="m22 32 7 7 14-15" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>HIV não é aids</h3><p>Aids é a fase avançada, quando a imunidade fica muito baixa. Com tratamento em dia, ela pode ser evitada.</p></div>
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6C22 22 16 30 16 40a16 16 0 0 0 32 0C48 30 42 22 32 6z" fill="#ffc857"/></svg><h3>Pode ser silencioso</h3><p>Muita gente não sente nada por anos. Por isso, só o teste mostra se o vírus está no corpo.</p></div>
+</div>
+<h3 style="margin-top:2rem">Como se transmite</h3>
+<p>Pelo contato com sangue, sêmen, secreções vaginais e leite materno de uma pessoa com HIV sem tratamento.</p>
+<div class="chips"><span class="chip yes">Sexo sem preservativo</span><span class="chip yes">Compartilhar seringas</span><span class="chip yes">Gestação, parto e amamentação sem cuidados</span></div>
+<h3>Como NÃO se transmite</h3>
+<div class="chips"><span class="chip no">Abraço e beijo</span><span class="chip no">Aperto de mão</span><span class="chip no">Talheres e copos</span><span class="chip no">Banheiro e piscina</span><span class="chip no">Suor e lágrimas</span><span class="chip no">Picada de mosquito</span></div>
+</div></section>
+
+<section id="virus"><div class="w">
+<h2>O vírus e o corpo</h2>
+<p>O HIV mede cerca de 120 nanômetros, milhares de vezes menor que um grão de areia. Toque nas partes para explorar.</p>
+<div class="two">
+<div class="card fig" id="fv">
+<h3>Por dentro do HIV</h3>
+<svg viewBox="0 0 300 300" role="img" aria-label="Ilustração em corte do vírus HIV">
+<g id="spk" class="hp" data-k="spk"></g>
+<circle class="hp" data-k="env" cx="150" cy="150" r="100" fill="#e11d48" opacity=".85"/>
+<circle cx="150" cy="150" r="88" fill="#8f1030" opacity=".6"/>
+<polygon class="hp" data-k="cap" points="112,106 188,106 160,206 140,206" fill="#ffc857"/>
+<g class="hp" data-k="rna" fill="none" stroke="#0f9f8f" stroke-width="5" stroke-linecap="round"><path d="M135 120q14 10 0 20t0 20t0 20"/><path d="M165 120q-14 10 0 20t0 20t0 20"/></g>
+</svg>
+<div class="tabs"><button data-k="spk">Espetos (gp120)</button><button data-k="env">Envelope</button><button data-k="cap">Cápsula</button><button data-k="rna">Material genético</button></div>
+<p class="exp">Toque em uma parte.</p>
+</div>
+<div class="card fig" id="fb">
+<h3>Onde ele age no corpo</h3>
+<svg viewBox="0 0 200 320" role="img" aria-label="Silhueta do corpo com os locais de ação do HIV">
+<g fill="var(--line)"><circle cx="100" cy="32" r="22"/><rect x="68" y="58" width="64" height="120" rx="26"/><rect x="38" y="64" width="22" height="110" rx="11"/><rect x="140" y="64" width="22" height="110" rx="11"/><rect x="72" y="170" width="26" height="140" rx="13"/><rect x="102" y="170" width="26" height="140" rx="13"/></g>
+<g class="hp" data-k="lin" fill="#0f9f8f"><circle cx="100" cy="58" r="7"/><circle cx="72" cy="96" r="7"/><circle cx="128" cy="96" r="7"/><circle cx="100" cy="176" r="7"/></g>
+<path class="hp" data-k="san" d="M108 112c-10-12-24 2-10 14l10 9 10-9c14-12 0-26-10-14z" fill="#e11d48"/>
+<circle class="hp" data-k="muc" cx="100" cy="152" r="9" fill="#ffc857"/>
+</svg>
+<div class="tabs"><button data-k="muc">Porta de entrada</button><button data-k="san">Sangue</button><button data-k="lin">Linfónodos</button></div>
+<p class="exp">Toque em uma região.</p>
+</div>
+</div>
+<div class="card" style="margin-top:1.2rem" id="fc">
+<h3>O que o vírus faz numa célula de defesa</h3>
+<div class="tabs"><button data-k="1">1. Encaixe</button><button data-k="2">2. Entrada</button><button data-k="3">3. Cópia</button><button data-k="4">4. Montagem</button><button data-k="5">5. Saída</button></div>
+<p class="exp">Toque em uma etapa.</p>
+</div>
+<p style="margin-top:1.2rem;color:var(--mut)">O HIV não tem “cara”: não existe imagem da doença no corpo que sirva para identificar quem tem o vírus. Muita gente não sente nada por anos, e só o teste confirma. Por isso não mostramos fotos de pessoas: elas alimentam estigma.</p>
+</div></section>
+
+<section id="prevencao" class="band"><div class="w">
+<h2>Prevenção combinada</h2>
+<p>Não existe um método único. A estratégia é combinar, e todos estão disponíveis no SUS.</p>
+<div class="grid">
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="18" y="10" width="28" height="44" rx="14" fill="#e11d48"/><rect x="26" y="18" width="12" height="28" rx="6" fill="#fff" opacity=".35"/></svg><h3>Camisinha</h3><p>Externa ou interna, protege também de sífilis, gonorreia e outras ISTs. Use em toda relação.</p></div>
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="22" width="48" height="20" rx="10" transform="rotate(-30 32 32)" fill="#0f9f8f"/><path d="M32 20 44 38" stroke="#fff" stroke-width="4" opacity=".6"/></svg><h3>PrEP</h3><p>Comprimido tomado antes da exposição, para quem tem mais chance de contato com o vírus. Protege muito quando usado como indicado.</p></div>
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="34" r="22" fill="#ffc857"/><path d="M32 20v15l9 6" stroke="#1a1633" stroke-width="4" fill="none" stroke-linecap="round"/></svg><h3>PEP</h3><p>Medicação de emergência após possível exposição. Comece o quanto antes, em até 72 horas, e siga por 28 dias.</p></div>
+<div class="card"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 50 40 24l6 6-26 26z" fill="#5b5776"/><path d="m38 18 8-8 8 8-8 8zM8 56l6-6" stroke="#e11d48" stroke-width="5" stroke-linecap="round" fill="#e11d48"/></svg><h3>Seringa própria</h3><p>Nunca compartilhe agulhas ou seringas. Em serviços de saúde, o material é descartável.</p></div>
+</div></div></section>
+
+<section id="teste"><div class="w">
+<h2>Quando fazer o teste?</h2>
+<p>Depois de uma possível exposição, o vírus leva um tempo para aparecer nos exames. Arraste e veja.</p>
+<div class="card">
+<label for="rg"><b>Dias desde a exposição: <span id="dv">0</span></b></label>
+<input type="range" id="rg" min="0" max="45" value="0">
+<div class="bar"><div id="br"></div></div>
+<p class="out" id="tx"></p>
+<p style="margin:0;color:var(--mut);font-size:.9rem">Estimativa geral. Um profissional de saúde orienta o seu caso.</p>
+</div>
+<p style="margin-top:1.2rem">O teste rápido é gratuito no SUS, sai em cerca de 30 minutos e o atendimento é sigiloso.</p>
+</div></section>
+
+<section id="tratamento" class="band"><div class="w">
+<h2>Indetectável = intransmissível</h2>
+<p class="big">I = I</p>
+<p>A terapia antirretroviral (TARV) reduz o vírus no sangue até níveis que os exames não detectam. Com carga viral indetectável mantida por pelo menos seis meses, a pessoa não transmite o HIV por via sexual. Isso é conhecido como <b>I=I</b>.</p>
+<div class="grid">
+<div class="card"><h3>Gratuito</h3><p>Medicação e acompanhamento são oferecidos pelo SUS.</p></div>
+<div class="card"><h3>Todo dia</h3><p>A regularidade é o que mantém o vírus sob controle. Não pare por conta própria.</p></div>
+<div class="card"><h3>Gestação segura</h3><p>Com pré-natal e tratamento, é possível evitar a transmissão para o bebê.</p></div>
+</div></div></section>
+
+<section id="historia" class="band"><div class="w">
+<h2>Como chegamos até aqui</h2>
+<p>Em poucas décadas, o HIV passou de mistério a condição controlável.</p>
+<ol class="tl">
+<li><b>1981</b><span>Primeiros casos de aids descritos nos Estados Unidos.</span></li>
+<li><b>1983</b><span>Cientistas identificam o vírus causador, o HIV.</span></li>
+<li><b>1996</b><span>Chegam os tratamentos combinados, e o Brasil passa a garantir a medicação gratuita por lei.</span></li>
+<li><b>2013</b><span>O SUS passa a oferecer tratamento a todas as pessoas com HIV, independentemente do nível de CD4.</span></li>
+<li><b>2017</b><span>A PrEP começa a ser oferecida pelo SUS.</span></li>
+<li><b>Hoje</b><span>Prevenção combinada, tratamento eficaz e I=I: viver bem com HIV é realidade.</span></li>
+</ol>
+</div></section>
+
+<section id="mitos"><div class="w">
+<h2>Mito ou verdade?</h2>
+<p>Toque na carta para virar.</p>
+<div class="grid" id="mg"></div>
+</div></section>
+
+<section id="quiz" class="band"><div class="w">
+<h2>Teste o que você aprendeu</h2>
+<div class="card q"><p><b id="qq"></b></p><div id="qo"></div><p id="qf" style="min-height:3em;color:var(--mut)"></p><button class="btn" id="qn" hidden>Próxima</button></div>
+</div></section>
+
+<section id="ajuda"><div class="w">
+<h2>Onde buscar ajuda</h2>
+<p>Procure uma Unidade Básica de Saúde ou um CTA (Centro de Testagem e Aconselhamento). Atendimento gratuito e sigiloso.</p>
+<p><a class="btn" href="tel:136">Ligar para o Disque Saúde 136</a></p>
+<div class="card s" style="margin-top:1.5rem"><h3>O preconceito também machuca</h3><p style="margin:0">Tratar bem quem vive com HIV, sem julgamento, faz mais pessoas procurarem teste e tratamento. Informação é a melhor forma de acolhimento.</p></div>
+<h3 style="margin-top:2rem">Perguntas frequentes</h3>
+<details><summary>Quem tem HIV pode ter filhos saudáveis?</summary><p>Sim. Com acompanhamento e tratamento, o risco de transmissão para o bebê é muito baixo.</p></details>
+<details><summary>Posso conviver com uma pessoa com HIV?</summary><p>Sim. A convivência diária, em casa, no trabalho ou na escola, não transmite o vírus.</p></details>
+<details><summary>Preciso contar para todo mundo?</summary><p>Não. O diagnóstico é um dado de saúde sigiloso, e discriminar alguém por viver com HIV é crime no Brasil.</p></details>
+<details><summary>Quando é o Dezembro Vermelho?</summary><p>É a campanha de prevenção e conscientização, com o Dia Mundial de Luta contra a Aids em 1º de dezembro.</p></details>
+</div></section>
+
+<footer><div class="w"><p style="margin:0 0 .6em"><b>© 2026 Cauã Nicolas Tiecher da Rocha e equipe.</b> Todos os direitos reservados.</p>Conteúdo informativo, não substitui consulta médica. Baseado em orientações gerais do Ministério da Saúde do Brasil. Confira sempre os protocolos atuais.</div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+/* figuras interativas */
+(()=>{let s='';for(let i=0;i<16;i++){const a=i*Math.PI/8,c=Math.cos(a),n=Math.sin(a);s+=`<line x1="${150+c*100}" y1="${150+n*100}" x2="${150+c*120}" y2="${150+n*120}" stroke="#ff6b8a" stroke-width="4"/><circle cx="${150+c*126}" cy="${150+n*126}" r="7" fill="#ff6b8a"/>`}$('#spk').innerHTML=s})();
+const T={spk:'Proteínas que funcionam como chave: encaixam na célula de defesa CD4 e abrem caminho para o vírus entrar.',env:'Camada de gordura roubada da célula anterior. Protege o vírus, mas ele morre rapidamente fora do corpo.',cap:'Casca de proteína que guarda o material genético e as enzimas que o vírus precisa para se copiar.',rna:'Duas fitas de RNA, o “manual de instruções” do vírus. Ele o usa para obrigar a célula a fabricar novos vírus.',muc:'O vírus entra por mucosas (como a genital e a retal) ou por sangue. Pele íntegra é uma barreira. A camisinha e a PrEP bloqueiam essa porta.',san:'Circula pelo sangue e atinge células CD4. A carga viral mede quanto vírus há aqui. Com tratamento, cai a níveis indetectáveis.',lin:'Os linfónodos (gânglias) são centrais do sistema imune no pescoço, axilas e virilha. O vírus se multiplica ali, e eles podem inchar no começo, mas isso tem muitas outras causas.',1:'Os espetos do vírus se ligam à célula CD4, como uma chave na fechadura. Medicamentos de entrada tentam impedir esse passo.',2:'O envelope do vírus se funde à célula e o conteúdo entra nela.',3:'Uma enzima copia o RNA em DNA, que se mistura ao DNA da célula. A TARV bloqueia justamente essas enzimas.',4:'A célula, sequestrada, fabrica peças de novos vírus e as junta.',5:'Novos vírus saem e atacam outras células. Sem tratamento, o ciclo se repete e a imunidade cai.'};
+function hot(id){const r=$(id),ex=r.querySelector('.exp');const go=k=>{r.querySelectorAll('[data-k]').forEach(e=>e.classList.toggle('on',e.dataset.k===k));ex.textContent=T[k]};r.querySelectorAll('[data-k]').forEach(e=>e.addEventListener('click',()=>go(e.dataset.k)));go(r.querySelector('button').dataset.k)}
+['#fv','#fb','#fc'].forEach(hot);
+/* progresso e linha do tempo */
+addEventListener('scroll',()=>{const h=document.documentElement;$('#pg').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.4});
+document.querySelectorAll('.tl li').forEach(l=>io.observe(l));
+/* tema */
+$('#theme').onclick=()=>{const r=document.documentElement,d=matchMedia('(prefers-color-scheme:dark)').matches;const cur=r.dataset.theme||(d?'dark':'light');r.dataset.theme=cur==='dark'?'light':'dark'};
+/* simulação de partículas */
+const cv=$('#cv'),cx=cv.getContext('2d');let W,H,P=[],treated=false,mouse={x:-99,y:-99};
+function size(){const r=cv.getBoundingClientRect();W=cv.width=r.width;H=cv.height=r.height}
+addEventListener('resize',size);size();
+cv.parentElement.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+const N=Math.min(70,Math.floor(innerWidth/14));
+for(let i=0;i<N;i++)P.push({x:Math.random()*2000%W,y:Math.random()*H,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,r:4+Math.random()*4,v:i<N*.7,a:1,t:Math.random()});
+function draw(){
+cx.clearRect(0,0,W,H);let alive=0;
+for(const p of P){
+ const tgt=p.v&&treated?0:1;p.a+=(tgt-p.a)*.02;
+ if(p.v&&p.a>.08)alive++;
+ const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);
+ if(d<90){p.vx+=dx/d*.05;p.vy+=dy/d*.05}
+ p.x+=p.vx;p.y+=p.vy;p.vx*=.995;p.vy*=.995;
+ if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+ cx.globalAlpha=Math.max(p.a,0);
+ if(p.v){cx.fillStyle='#e11d48';cx.strokeStyle='#e11d48';cx.lineWidth=2;
+  for(let k=0;k<8;k++){const an=k*Math.PI/4+p.t;cx.beginPath();cx.moveTo(p.x+Math.cos(an)*p.r,p.y+Math.sin(an)*p.r);cx.lineTo(p.x+Math.cos(an)*(p.r+4),p.y+Math.sin(an)*(p.r+4));cx.stroke()}
+  cx.beginPath();cx.arc(p.x,p.y,p.r,0,7);cx.fill()}
+ else{cx.fillStyle=treated?'#2dd4bf':'#0f9f8f';cx.beginPath();cx.arc(p.x,p.y,p.r+3,0,7);cx.fill();cx.globalAlpha*=.4;cx.fillStyle='#fff';cx.beginPath();cx.arc(p.x-2,p.y-2,2,0,7);cx.fill()}
+}
+cx.globalAlpha=1;$('#cnt').textContent=alive;
+$('#vls').textContent=treated&&alive<2?'carga viral indetectável':'partículas do vírus no sangue (simulação)';
+requestAnimationFrame(draw)}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){P.forEach(p=>{p.vx=p.vy=0})}
+draw();
+$('#sw').onclick=e=>{treated=!treated;e.currentTarget.setAttribute('aria-checked',treated);$('#swl').textContent=treated?'Com tratamento (TARV)':'Sem tratamento'};
+/* janela diagnóstica */
+const msgs=[[0,'Muito cedo para os testes detectarem o vírus. Se a exposição foi nas últimas 72 horas, procure um serviço de saúde agora: a PEP pode evitar a infecção.'],[4,'Ainda é cedo para o teste. Se já passaram mais de 72 horas, aguarde e use proteção nesse período.'],[15,'Alguns exames de laboratório já podem detectar o vírus. Um teste negativo pode precisar ser repetido.'],[30,'O teste rápido já costuma ser confiável. Procure uma unidade de saúde ou CTA.']];
+function upd(){const v=+$('#rg').value;$('#dv').textContent=v;$('#br').style.width=v/45*100+'%';let m=msgs[0][1];for(const [d,t] of msgs)if(v>=d)m=t;$('#tx').textContent=m}
+$('#rg').oninput=upd;upd();
+/* mitos */
+const M=[['Dá para pegar HIV com um abraço.','MITO','Abraço, beijo e aperto de mão não transmitem o vírus.'],['Pessoa indetectável não transmite HIV pelo sexo.','VERDADE','É o princípio I=I, comprovado por grandes estudos.'],['HIV é sentença de morte.','MITO','Com tratamento, a expectativa de vida é próxima à da população geral.'],['Dá para ver no rosto quem tem HIV.','MITO','Só o exame confirma. Muita gente não tem sintomas por anos.'],['Existe pílula para tomar antes da exposição.','VERDADE','É a PrEP, oferecida pelo SUS para quem tem indicação.'],['Mosquito transmite HIV.','MITO','O vírus não sobrevive nem se multiplica no organismo do inseto.']];
+$('#mg').innerHTML=M.map(m=>`<button class="flip" aria-label="Carta: ${m[0]}"><div><span class="f"><i>MITO OU VERDADE?</i>${m[0]}</span><span class="b"><b>${m[1]}</b>${m[2]}</span></div></button>`).join('');
+document.querySelectorAll('.flip').forEach(b=>b.onclick=()=>b.classList.toggle('on'));
+/* quiz */
+const Q=[['Qual dessas situações transmite o HIV?',['Compartilhar copo','Sexo sem preservativo com pessoa sem tratamento','Abraço'],1,'Isso mesmo: a via sexual desprotegida é uma das principais.'],['Em quanto tempo a PEP deve ser iniciada?',['Em até 72 horas','Em até 30 dias','A qualquer momento'],0,'Quanto antes, melhor, e no máximo em 72 horas.'],['O que significa I=I?',['Imunidade igual a infecção','Indetectável é igual a intransmissível','Isolamento imediato'],1,'Carga viral indetectável não transmite o HIV pelo sexo.'],['Onde fazer o teste de HIV gratuitamente?',['Só em hospitais privados','No SUS (UBS e CTA)','Não existe teste gratuito'],1,'O teste rápido é gratuito e sigiloso no SUS.']];
+let qi=0,sc=0;
+function ask(){const q=Q[qi];$('#qq').textContent=`(${qi+1}/${Q.length}) ${q[0]}`;$('#qf').textContent='';$('#qn').hidden=true;
+$('#qo').innerHTML=q[1].map((o,i)=>`<button class="o" data-i="${i}">${o}</button>`).join('');
+document.querySelectorAll('#qo .o').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;document.querySelectorAll('#qo .o').forEach(x=>x.disabled=true);
+b.classList.add(i===q[2]?'ok':'ko');if(i===q[2])sc++;else document.querySelector(`#qo [data-i="${q[2]}"]`).classList.add('ok');
+$('#qf').textContent=q[3];$('#qn').textContent=qi<Q.length-1?'Próxima':'Ver resultado';$('#qn').hidden=false})}
+$('#qn').onclick=()=>{qi++;if(qi<Q.length)ask();else{$('#qq').textContent=`Você acertou ${sc} de ${Q.length}.`;$('#qo').innerHTML='';$('#qf').textContent=sc===Q.length?'Excelente! Compartilhe o que aprendeu.':'Releia as seções acima e tente de novo.';$('#qn').textContent='Refazer';$('#qn').onclick=()=>location.reload()}};
+ask();
+</script>
+</body>
+</html>
